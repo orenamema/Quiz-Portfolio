@@ -14,14 +14,24 @@
 
 </head>
 <body>
-        <div class="container" id="mainContainer">
-            <h1>Coding Quiz Challenge</h1>
-            <p>Try to answer the following code-related questions within the time <br>
-                limit. Keep in mindthat incorrect answers will penalize your score/time <br>
-                by ten seconds!
-             
-            </p>
-            <button onclick= "startQuiz()" class="quizStarter">Start Quiz</button>
-            </div>
+    <nav class="navbar navbar-default bg-white">
+        <div class="container" id="top-container">
+            <!-- Insert timer here -->
+        </div>
+    </nav>            
+
+    <div class="container" id="mainContainer">
+        <h1 id="qHeader">Coding Quiz Challenge</h1>
+ 
+        <p id="paragraph">Try to answer the following code-related questions within the time <br>
+            limit. Keep in mindthat incorrect answers will penalize your score/time <br>
+            by ten seconds! 
+        </p>
+
+        <!-- This is a div to capture the questions -->
+        <div id="qDiv">
+            <button onclick="execute()" class="quizButton">Start Quiz</button>
+        </div>
+    </div>
 </body>
 </html>
