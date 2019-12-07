@@ -4,11 +4,9 @@
     border-radius: 5px;
     background-color: rgb(80, 2, 95);
 }
-.container{
+.container {
     width: 800px;
     max-width: 80%;
-    background-color: wheat
-    border-radius: 5px;
-    margin-top: 100px;
-
+    background-color:whitesmoke;
+    margin-top: 10%;
 }
