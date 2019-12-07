@@ -38,7 +38,6 @@ var questions = [
     
 },
 ];
-
 // function to save the score
 function scoreSave(hit) {
     // we get add the value of the answer to the existing score
@@ -55,10 +54,16 @@ function clear_buttons(){
     qDiv.querySelectorAll('*').forEach(n => n.remove());
 }
 
+// https://www.abeautifulsite.net/adding-and-removing-elements-on-the-fly-using-javascript
+function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+}
 
 
 function create_buttons(Q){
-        // We add the answer buttons
+    // We add the answer buttons
     var i;
     for (i = 0; i < Q['choices'].length; i++) {
         var node = document.createElement("BUTTON");
@@ -81,18 +86,19 @@ function display_answer(answer="Correct"){
     var node = document.createElement("H3");
     var node2 = document.createElement("HR");
     var textnode = document.createTextNode(answer);
+    // add attibutes
+    node.setAttribute("id", "response");
+    node2.setAttribute("id", "line");
     // We add the text to the buttons
     node.appendChild(textnode);
     // We add a break before each button
-    document.getElementById("qDiv").appendChild(node2);
+    document.getElementById("mainContainer").appendChild(node2);
     // We add the button 
-    document.getElementById("qDiv").appendChild(node);
+    document.getElementById("mainContainer").appendChild(node);
     
 }
 
 // setTimeout(myFunction, 3000);
-
-
 
 function execute(the_answer=""){
 
@@ -117,26 +123,39 @@ function execute(the_answer=""){
     }
 
     else if (state == 'questions'){
+
         var Qnum = Number(localStorage.getItem("questionNumber"));
         // get the current question question
         var Q_curr = questions[Qnum]; 
         // get the current question question
+        if (Qnum > 0){
+            removeElement('line');
+            removeElement('response');
+        }
 
         // validate the answer
         if (the_answer == questions[Qnum]["answer"]){
-           var current_score = localStorage.getItem("currentScore") + 1;
+           var current_score = Number(localStorage.getItem("currentScore")) + 1;
            display_answer("Correct");
-           setTimeout(console.log('Correct'), 3000)
+           // setTimeout(() => {  console.log("Correct"); }, 3000);
+           localStorage.setItem("currentScore", current_score);
         }
         else {
             display_answer("Incorrect");
-            setTimeout(console.log('Incorrect'), 3000);
+            // setTimeout(() => {  console.log("Incorrect"); }, 3000);
         }
 
 
         // build next question
-        if (Qnum >= (questions.length)) {
+        if (Qnum+1 >= (questions.length)) {
             localStorage.setItem("state", "submit");
+            removeElement('line');
+            removeElement('response');
+            clear_buttons();
+            // qHeader
+            document.getElementById("qHeader").innerHTML = "All Done!";  
+            // We remove the paragraph description
+            document.getElementById("paragraph").innerHTML = "Your score is " + localStorage.getItem("currentScore") + " !";           
         }
         else {
             // the question
@@ -154,6 +173,13 @@ function execute(the_answer=""){
     }
 
     else if (state == 'submit'){
+        removeElement('line');
+        removeElement('response');
+        clear_buttons();
+        // qHeader
+        document.getElementById("qHeader").innerHTML = "All Done";        
+
+
 
         // set state to be question
         localStorage.setItem("state", "topScore");        
@@ -163,5 +189,6 @@ function execute(the_answer=""){
 
         // set state to be question
         localStorage.setItem("state", "start");           
-    }  
-}  
+    }    
+
+}
