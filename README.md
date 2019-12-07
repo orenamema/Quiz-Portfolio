@@ -38,8 +38,7 @@ Following are the requirements that the page needs to meet.
 * After the game ends, the user can save their initials and score to a highscores view using local storage.
 
 
-## Website
-The following function allows us to save the score, we get add the value of the answer to the existing score.
+## We
 
 Functions for the buttons:
 
@@ -64,9 +63,6 @@ Functions for the buttons:
         document.getElementById("qDiv").appendChild(node);
     }        
 }
-
-
-
 
 
   
