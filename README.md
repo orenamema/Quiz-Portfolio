@@ -39,7 +39,7 @@ Following are the requirements that the page needs to meet.
 * After the game ends, the user can save their initials and score to a highscores view using local storage.
 
 
-## We
+## Website
 
 Functions for the buttons:
 
