@@ -16,7 +16,7 @@ In this assignment we were asked to build a code quiz with multiple-choice quest
 
 * When time runs out and/or all questions are answered, the user is presented with their final score and asked to enter their initials. Their final score and initials are then stored in localStorage.
 
-#add gif here#
+![alt text](https://github.com/orenamema/Mythirdhomework/raw/master/assets/ezgif.com-video-to-gif(1).gif) 
 
 There are 3 files:
 
