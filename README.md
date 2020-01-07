@@ -25,7 +25,7 @@ There are 3 files:
 * `questions.js`
 * `style.css`
 
-Here is the link to the page https://orenamema.github.io/Quiz-Portfolio/
+Here is the [Link](https://orenamema.github.io/Quiz-Portfolio/) to the page
 
 ## Requirements
 
